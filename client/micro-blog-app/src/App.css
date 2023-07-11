@@ -1,0 +1,252 @@
+*{
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+a, Link{
+ text-decoration: none;
+ color: inherit;
+}
+
+li, .link{
+ color: inherit;
+ list-style: none;
+ text-decoration:none;
+}
+
+.layout{
+ display: grid;
+ grid-template-columns: 1fr 2fr 1fr;
+}
+
+.layout>div{
+ border: 1px rgba(128, 128, 128, 0.514) solid;
+ height: 100vh;
+}
+
+.left{
+ padding: 0 60px;
+}
+
+.twitter-logo{
+ width: 50px;
+}
+
+.menu-item{
+
+}
+
+.menu-item > h2{
+ font-size: 20px;
+}
+
+/* Home page */
+.header-container{
+ border-bottom:1px solid rgba(128, 128, 128, 0.514);
+}
+
+.home-header{
+ display: flex;
+ justify-content:space-between;
+ margin:10px;
+ align-items:center;
+}
+.star{
+ width:25px;
+ height:25px;
+}
+
+/* TWEET POST */
+.tweet-img{
+ background-color: pink;
+ width: 50px;
+ height: 50px;
+ border-radius: 50%;
+}
+
+.tweet-img-text{
+ padding-top: 15px;
+ display: flex;
+ padding-inline: 10px;
+}
+
+.tweet-area{
+ width: 100%;
+ /* border: ; */
+}
+
+.upload-img{
+ align-items: center;
+ width: 25px;
+ cursor: pointer;
+ /* margin-left:50px; */
+ /* position: absolute; */
+}
+
+.tweet-icons{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-left: 30px;
+ padding-inline: 20px;
+ padding-top: 10px ;
+}
+
+.tweet-submit{
+ background-color: black;
+ color: white;
+ border: none;
+ padding: 10px 20px;
+ border-radius: 20px;
+}
+
+
+/* login form */
+.main-form {
+ background-color: #4e64d4;
+ background-image: linear-gradient(43deg, #5069e9 0%, #2e7adf 53%, #70e2ff 100%);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ min-height: 100vh;
+
+}
+
+.container {
+ background-color: white;
+ border-radius: 7px;
+ box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+ width: 400px;
+ border-radius: 10px;
+}
+
+.form {
+ padding: 30px 40px;
+ background-color: #4158D0;
+ background-image: linear-gradient(43deg, #5069e9 0%, #2e7adf 53%, #70e2ff 100%);
+ border-radius: 10px;
+}
+
+.sign-header {
+ color: #fff;
+ text-align: center;
+ margin: 0 0 20px;
+}
+
+.form-control {
+ margin-bottom: 10px;
+ padding-bottom: 20px;
+ position: relative;
+}
+
+label {
+ color: #fff;
+ display: block;
+ margin-bottom: 4px;
+}
+
+input {
+ border: 2px solid #f0f0f0;
+ border-radius: 4px;
+ display: block;
+ width: 100%;
+ padding: 10px;
+ font-size: 14px;
+}
+
+.form-control input:focus {
+ outline: 0;
+ border-color: #777;
+}
+
+.form-control.success input {
+ border-color: #2ecc71;
+}
+
+.form-control.error input {
+ border-color: #e74c3c;
+}
+
+.form-control small {
+ color: #e74c3c;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ visibility: hidden;
+}
+
+.form-control.error small {
+ visibility: visible;
+}
+
+.register-btn {
+ cursor: pointer;
+ background-color: #000;
+ border: 2px solid #000;
+ border-radius: 4px;
+ color: #fff;
+ display: block;
+ font-size: 17px;
+ padding: 10px;
+ top: 20px;
+ width: 100%;
+}
+
+/* Home page */
+.hero-page{
+   width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    padding-inline: 150px;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #5069e9 0%, #2e7adf 53%, #70e2ff 100%);
+}
+
+
+.hero h1, .hero p {
+ color: white;
+ padding: 15px;
+}
+
+
+.sign-btn{
+ display: flex;
+ flex-direction: column;
+}
+
+.sign-btn button{
+ margin: 10px;
+ padding: 15px 25px;
+ border: none;
+ background-color: #4095e8;
+ color: white;
+ border: 1px white solid;
+ border-radius: 20px;
+ font-weight: 700;
+ font-size: 16px;
+}
+
+@media(max-width:960px) {
+ .hero-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 100px;
+  /* grid-template-columns: 1fr; */
+  /* min-height: 50vh; */
+ }
+
+ .hero h1,
+ .hero p {
+  text-align: center;
+ }
+
+ .sign-btn {
+  display: flex;
+  flex-direction: row !important;
+ }
+}
+
