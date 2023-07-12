@@ -40,7 +40,7 @@ function App() {
         {
           username && (
             <Route path='/home' element={<ProtectedRoute><Layout /></ProtectedRoute>}>
-              <Route index element={<ProtectedRoute><IndexPage /></ProtectedRoute>} />
+              <Route index element={<ProtectedRoute><IndexPage id={userInfo.id} /></ProtectedRoute>} />
               <Route path='/home/tweet' element={<ProtectedRoute><Tweet /></ProtectedRoute>} />
               <Route path='/home/profile' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
               <Route path='/home/alltweets' element={<ProtectedRoute><AllTweets /></ProtectedRoute>} />

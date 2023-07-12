@@ -1,17 +1,35 @@
-import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import swal from "sweetalert"
+// import axios from 'axios';
+import { Navigate, useParams } from 'react-router-dom';
 import Star from "../images/Twitter_star.png"
 import Upload from "../images/upload_image.png"
 import AllTweets from './AllTweets';
+import { UserContext } from '../UserContext';
+// import { UserContextProvider } from "../UserContext";
 
 
 // import LeftSide from '../components/LeftSide';
 // import Post from '../Post';
 
-const IndexPage = () => {
+const IndexPage = (id) => {
+  // const { id } = useParams()
+  console.log(id.id);
+  const { setUserInfo, userInfo } = useContext(UserContext);
   const [tweet, setTweet] = useState('')
   const [files, setFiles] = useState('')
   const [redirect, setRedirect] = useState(false)
+  const [userDetails, setUserDetails] = useState('')
+
+  useEffect(() => {
+    fetch('http://localhost:7000/api/create/user/' + id.id)
+    .then(response =>{
+      response.json().then(postInfo =>{
+        setUserDetails(postInfo)
+        console.log(postInfo);
+      })
+    })
+  },[])
 
   async function createNewTweet(ev) {
     const data = new FormData()
@@ -27,12 +45,17 @@ const IndexPage = () => {
 
     if (response.ok) {
       setRedirect(true)
+      swal("Tweet Sent Successfully", "Success", "Success")
     }
   }
 
   if (redirect) {
-    return <Navigate to={'/'} />
+    // return <Navigate to={'/'} />
   }
+
+  // console.log(userID.id);
+  // Fetch data for single product
+
 
   return (
     <div>
@@ -50,7 +73,8 @@ const IndexPage = () => {
 
             <form onSubmit={createNewTweet}>
               <div className='tweet-img-text'>
-                <img src="" alt='' className='tweet-img' />
+                <img src={userDetails.imageURL} alt='' className='tweet-img' />
+                <h1>{userDetails.username}</h1>
                 <input
                   type="text"
                   placeholder="What's happening?" className='tweet-area'

@@ -7,6 +7,7 @@ const cors = require('cors');
 
 const userRouter = require("./routes/UserRoute")
 const tweetRouter = require("./routes/TweetRoute")
+const bodyParser = require('body-parser');
 
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }))
 // Connect server to database
@@ -17,6 +18,10 @@ mongoose.connect("mongodb://localhost:27017/testPost")
  .catch((err) => {
   console.log(err);
  })
+
+// Configure body-parser middleware
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // middlewae for post http model
 app.use(express.json())

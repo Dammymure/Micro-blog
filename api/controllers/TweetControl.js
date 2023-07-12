@@ -25,7 +25,9 @@ const createTweet = async (req, res) => {
     photo: newPath,
     postedBy: info.id,
    })
-   res.json(postDoc, "success")
+   console.log(postDoc)
+   // res.json(postDoc, "success")
+   res.status(200).json(postDoc)
   })
  }catch(err){
   res.json(err)

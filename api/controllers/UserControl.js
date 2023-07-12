@@ -16,8 +16,17 @@ const createUser = async (req, res) => {
   }
 
   // If it doesnt exist create user 
-  const createUser = await User.create({ username, email, password, imageURL })
-  res.status(201).json({ msg: "You have been registered", createUser })
+  const createdUser = await User.create({ username:createdUser.username, 
+   email: createdUser.email, 
+   password: createdUser.password, 
+   imageURL: createdUser.imageURL})
+  res.status(200).json({
+   username: createdUser.username,
+   email: createdUser.email,
+   password: createdUser.password,
+   imageURL: createdUser.imageURL,
+   msg:"User created successfully"
+  })
  }
  catch (err) {
   res.send(err)
@@ -27,11 +36,11 @@ const createUser = async (req, res) => {
 // Login User
 const loginUser = async (req, res) => {
  try {
-  const { username, password  } = req.body
+  const { username, password } = req.body
   const existingUser = await User.findOne({ username: username })
   if (existingUser && (await existingUser.isPasswordMatch(password))) {
    jwt.sign({ username, id: existingUser._id }, secret, {}, (err, token) => {
-    
+
     if (err) throw err;
     return res.cookie('token', token).json({
      _id: existingUser._id,
@@ -67,4 +76,17 @@ const profile = (req, res) => {
  });
 }
 
-module.exports = { createUser, loginUser, logOut, profile }
+// Fetch single user
+const getOneUser = async (req, res) => {
+ const { id } = req.params
+ console.log(id);
+ try {
+  const getSingleUser = await User.findById(id)
+  // console.log(getSingleUser);
+  res.status(200).json(getSingleUser)
+ } catch (err) {
+  res.send(err)
+ }
+}
+
+module.exports = { createUser, loginUser, logOut, profile, getOneUser }
