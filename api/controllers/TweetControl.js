@@ -34,4 +34,15 @@ const createTweet = async (req, res) => {
  }
 }
 
-module.exports = { createTweet }
+
+const showTweets = async (req, res) => {
+ res.json(
+  await Tweet.find()
+   .populate('postedBy', ['imageURL',"username"])
+   .sort({ createdAt: -1 })
+   // .limit(20)
+ )
+}
+
+
+module.exports = { createTweet, showTweets }

@@ -12,6 +12,7 @@ import Register from './Pages/RegisterUser';
 import { UserContextProvider } from "./UserContext";
 import LandingPage from './Pages/LandingPage';
 import { UserContext } from './UserContext';
+import LeftSide from './components/LeftSide';
 // import Layout from "./Layout"
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/' element={<LandingPage />} />
         <Route path='/error' element={<Error />} />
+        <Route path='' element={<LeftSide />} />
         {
           username && (
             <Route path='/home' element={<ProtectedRoute><Layout /></ProtectedRoute>}>

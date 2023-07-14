@@ -10,6 +10,9 @@ const tweetRouter = require("./routes/TweetRoute")
 const bodyParser = require('body-parser');
 
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }))
+
+app.use('/uploads', express.static(__dirname + '/uploads'))
+
 // Connect server to database
 mongoose.connect("mongodb://localhost:27017/testPost")
  .then(() => {

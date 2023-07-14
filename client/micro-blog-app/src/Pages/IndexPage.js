@@ -32,10 +32,10 @@ const IndexPage = (id) => {
   },[])
 
   async function createNewTweet(ev) {
+    ev.preventDefault()
     const data = new FormData()
     data.set('tweet', tweet)
     data.set('file', files[0])
-    ev.preventDefault()
 
     const response = await fetch('http://localhost:7000/api/tweet', {
       method: 'POST',
@@ -74,7 +74,7 @@ const IndexPage = (id) => {
             <form onSubmit={createNewTweet}>
               <div className='tweet-img-text'>
                 <img src={userDetails.imageURL} alt='' className='tweet-img' />
-                <h1>{userDetails.username}</h1>
+                {/* <h1>{userDetails.username}</h1> */}
                 <input
                   type="text"
                   placeholder="What's happening?" className='tweet-area'
@@ -100,7 +100,6 @@ const IndexPage = (id) => {
 
       </div>
       <div>
-        Hello
         <AllTweets />
       </div>
     </div>
@@ -108,3 +107,4 @@ const IndexPage = (id) => {
 }
 
 export default IndexPage;
+

@@ -4,6 +4,10 @@
  padding: 0;
 }
 
+button{
+    cursor: pointer;
+}
+
 a, Link{
  text-decoration: none;
  color: inherit;
@@ -21,12 +25,28 @@ li, .link{
 }
 
 .layout>div{
- border: 1px rgba(128, 128, 128, 0.514) solid;
- height: 100vh;
+ /* height: 100vh; */
+}
+
+.layout > :nth-child(2){
+    border: 1px rgba(128, 128, 128, 0.514) solid;
+    max-width: 700px;
+    width: fit-content;
+}
+
+.middle{
+    
+}
+
+.left-container{
+    /* background-color: #f1bcb6; */
 }
 
 .left{
  padding: 0 60px;
+ /* background-color: #f1bcb6; */
+ position: fixed;
+ overflow-y: hidden;
 }
 
 .twitter-logo{
@@ -250,3 +270,50 @@ input {
  }
 }
 
+/* sections */
+.left-side{
+    background-color: #000;
+    position: fixed;
+}
+
+/* TWEET HOMEPAGE */
+
+/* TWEET LAYOUT */
+.tweet-username{
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+    padding-bottom: 5px;
+}
+
+.tweet-time{
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+    padding-left: 8px;
+}
+
+.tweet-tweet{
+    font-size: 13px;
+    padding-bottom: 5px;
+}
+
+.tweet-layout{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.tweet-image{
+    width: 100% ;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 7px;
+}
+
+.image-contain{
+    
+}
+
+.tweet-text-img{
+    width: 100%;
+    padding-left: 10px;
+}

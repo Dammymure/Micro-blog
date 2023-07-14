@@ -12,14 +12,18 @@ const createUser = async (req, res) => {
   const existingUser = await User.findOne({ username: username })
   // if it exists give error
   if (existingUser) {
+   console.log("User already exists");
    return res.json({ msg: "User already exists", existingUser })
+  }else{
+
   }
 
   // If it doesnt exist create user 
-  const createdUser = await User.create({ username:createdUser.username, 
-   email: createdUser.email, 
-   password: createdUser.password, 
-   imageURL: createdUser.imageURL})
+  const createdUser = await User.create({ 
+   username, 
+   email, 
+   password, 
+   imageURL})
   res.status(200).json({
    username: createdUser.username,
    email: createdUser.email,
@@ -27,6 +31,7 @@ const createUser = async (req, res) => {
    imageURL: createdUser.imageURL,
    msg:"User created successfully"
   })
+  console.log(createdUser);
  }
  catch (err) {
   res.send(err)
@@ -40,7 +45,7 @@ const loginUser = async (req, res) => {
   const existingUser = await User.findOne({ username: username })
   if (existingUser && (await existingUser.isPasswordMatch(password))) {
    jwt.sign({ username, id: existingUser._id }, secret, {}, (err, token) => {
-
+    console.log(token);
     if (err) throw err;
     return res.cookie('token', token).json({
      _id: existingUser._id,
@@ -63,11 +68,6 @@ const loginUser = async (req, res) => {
  }
 }
 
-const logOut = (req, res) => {
- res.cookie("token", "").json("Ok")
- localStorage.removeItem("token")
-}
-
 const profile = (req, res) => {
  const { token } = req.cookies;
  jwt.verify(token, secret, {}, (err, info) => {
@@ -75,6 +75,12 @@ const profile = (req, res) => {
   res.json(info);
  });
 }
+
+const logOut = (req, res) => {
+ res.cookie("token", "").json("Ok")
+ localStorage.removeItem("token")
+}
+
 
 // Fetch single user
 const getOneUser = async (req, res) => {

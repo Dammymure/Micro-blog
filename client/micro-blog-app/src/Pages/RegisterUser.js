@@ -18,10 +18,11 @@ const RegisterUser = () => {
     }else{
       const response = await fetch("http://localhost:7000/api/create/user", {
         method: 'POST',
-        body: JSON.stringify({ username, password, email, password, imageURL }),
+        body: JSON.stringify({username, password, email, imageURL }),
         headers: { "Content-Type": "application/json" }
       })
       console.log(response.status)
+      console.log(response);
       if (response.status === 200) {
         swal("Registered successfull","Welcome", "success")
         navigate("/login")

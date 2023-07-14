@@ -10,6 +10,7 @@ const TweetSchema = new mongoose.Schema({
  },
  photo: {
   type: String,
+  // required:false
  },
  postedBy:{ 
   type:Schema.Types.ObjectId,
