@@ -23,13 +23,14 @@ const IndexPage = (id) => {
 
   useEffect(() => {
     fetch('http://localhost:7000/api/create/user/' + id.id)
-    .then(response =>{
-      response.json().then(postInfo =>{
-        setUserDetails(postInfo)
-        console.log(postInfo);
+      .then(response => {
+        response.json().then(postInfo => {
+          setUserDetails(postInfo)
+          setUserInfo(postInfo)
+          console.log(postInfo);
+        })
       })
-    })
-  },[])
+  }, [])
 
   async function createNewTweet(ev) {
     ev.preventDefault()

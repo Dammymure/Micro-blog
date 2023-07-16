@@ -13,6 +13,7 @@ const LeftSide = () => {
    method: "POST",
   })
   setUserInfo(null)
+  localStorage.removeItem("currentUser")
   console.log(userInfo)
   if(userInfo == null){
    navigate("/home")

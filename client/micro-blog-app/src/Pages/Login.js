@@ -37,9 +37,14 @@ const Login = () => {
         console.log(response)
         response.json().then(userInfo => {
           console.log(userInfo)
-          setUserInfo(userInfo)
-          swal("Successful Login", "success")
-          setRedirect(true)
+          if (userInfo.msg === "Invalid credentials"){
+            swal("Wrong credentials", "Try Again", "error")
+          }else{
+            setUserInfo(userInfo)
+            localStorage.setItem("currentUser",JSON.stringify(userInfo))
+            swal("Successful Login", "success")
+            setRedirect(true)
+          }
         })
       } else {
         swal("Wrong credentials")

@@ -25,12 +25,14 @@ const createUser = async (req, res) => {
    password, 
    imageURL})
   res.status(200).json({
+   id:createdUser._id,
    username: createdUser.username,
    email: createdUser.email,
    password: createdUser.password,
    imageURL: createdUser.imageURL,
    msg:"User created successfully"
   })
+  
   console.log(createdUser);
  }
  catch (err) {
@@ -47,6 +49,15 @@ const loginUser = async (req, res) => {
    jwt.sign({ username, id: existingUser._id }, secret, {}, (err, token) => {
     console.log(token);
     if (err) throw err;
+
+    // const user = {
+    //  _id: existingUser._id,
+    //  username: existingUser.username,
+    //  email: existingUser.email,
+    //  imageURL: existingUser.imageURL,
+    //  msg: "You have successfully logged IN",
+    // }
+    // user.save()
     return res.cookie('token', token).json({
      _id: existingUser._id,
      username: existingUser.username,
@@ -55,6 +66,7 @@ const loginUser = async (req, res) => {
      msg: "You have successfully logged IN",
      token: token
     });
+    
    });
 
   }
