@@ -61,8 +61,11 @@ const LeftSide = () => {
      <img src='' alt='' />
      <h2>Tweet</h2>
     </Link>
-    <Link to='/login'>
-     <a onClick={logout} href="">Logout</a>
+    <Link className='link menu-item logout' to='/login'>
+     <img src='' alt='' />
+     <h2>
+      <a onClick={logout} href="">Logout</a>
+     </h2>
     </Link>
 
    </ul>

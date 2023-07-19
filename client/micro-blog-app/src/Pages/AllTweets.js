@@ -27,7 +27,7 @@ const AllTweets = (id) => {
     })
   }, [])
 
-  const likeTweet = (idendti,currentID) => {
+  const likeTweet = (idendti, currentID) => {
 
     fetch('http://localhost:7000/api/tweet/like', {
       method: "put",
@@ -35,16 +35,16 @@ const AllTweets = (id) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id:currentID,
+        id: currentID,
         tweetId: idendti,
       })
     }).then(res => res.json())
       .then(result => {
         // console.log(result);
-        const newData = data.map(item=>{
-          if(item._id == result._id){
+        const newData = data.map(item => {
+          if (item._id == result._id) {
             return result
-          }else{
+          } else {
             return item
           }
         })
@@ -75,7 +75,7 @@ const AllTweets = (id) => {
           }
         })
         setData(newData)
-      }).catch(err=>{
+      }).catch(err => {
         console.log(err);
       })
   }
@@ -95,18 +95,21 @@ const AllTweets = (id) => {
                 <time className='tweet-time'>-{formatDistanceToNowStrict(new Date(tweet.createdAt))}</time>
 
               </div>
+
+              <div>
               <p className='tweet-tweet'>{tweet.tweet}</p>
               <img src={'http://localhost:7000/' + tweet.photo} alt="" className='tweet-image' />
+              <div>
+                {tweet.likes.includes(currentID._id)
+                  ? <button onClick={() => { unlikeTweet(tweet._id, currentID._id) }} className='down'><FaThumbsDown /></button>
+                  :
+                    <button onClick={() => { likeTweet(tweet._id, currentID._id) }} className='up'><FaThumbsUp /></button>
+                }
+                <p>{tweet.likes.length} Likes</p>
+              </div>
             </div>
-            <div>
-              { tweet.likes.includes(currentID._id)
-                ? <button onClick={() => { unlikeTweet(tweet._id, currentID._id) }}><FaThumbsDown /></button>
-                :
-                <button onClick={() => { likeTweet(tweet._id, currentID._id) }}><FaThumbsUp /></button>
-              }
+
             </div>
-            <p>{tweet.likes.length} Likes</p>
-            <p>{tweet._id}</p>
           </div>
         )
       })}
