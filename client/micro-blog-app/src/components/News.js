@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Header from './Header';
 
-
-
-const RightSide = () => {
+const News = () => {
  const [update, setUpdate] = useState([])
 
  useEffect(() => {
@@ -19,21 +17,22 @@ const RightSide = () => {
 
  return (
   <>
-   <div className='right-news'>
+   <div>
+    <div><Header/></div>
     <h2>Trending News</h2>
     {
-      update.length && update.map(post=>{
-       return(<>
-        <a href={post.link} target="_blank" className='news-tab'>
-         <img src={post.image_url} alt="" className='news-image'/>
+     update.length && update.map(post => {
+      return (<>
+       <a href={post.link} target="_blank" className='news-tab'>
+        <img src={post.image_url} alt="" className='news-image' />
         <div className='news-container'>
          <p className='trend'>Trending...</p>
          <p className='news'>{post.title}</p>
-         </div>
+        </div>
        </a>
-       </>
-       )
-      })
+      </>
+      )
+     })
     }
    </div>
   </>
@@ -41,4 +40,5 @@ const RightSide = () => {
 }
 
 
-export default RightSide;
+
+export default News;

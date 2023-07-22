@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom'
 import swal from "sweetalert"
 // import axios from 'axios';
 import { Navigate, useParams } from 'react-router-dom';
-import Star from "../images/Twitter_star.png"
+
 import Upload from "../images/upload_image.png"
 import AllTweets from './AllTweets';
 import { UserContext } from '../UserContext';
+import RightSide from '../components/RightSide';
+import News from '../components/News';
+import Header from '../components/Header';
 // import { UserContextProvider } from "../UserContext";
 
 
@@ -61,13 +65,15 @@ const IndexPage = (id) => {
   return (
     <div>
       <div>
-        <div className="header-container">
+        {/* <div className="header-container">
           <div className="home-header">
             <h2>Home</h2>
             <img src={Star} alt='' className='star' />
+            <button><Link>options</Link></button>
+            <button><Link to='/home/news'>news</Link></button>
           </div>
-        </div>
-
+        </div> */}
+        <Header/>
         <div>
 
           <div className='tweet'>

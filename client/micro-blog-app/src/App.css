@@ -369,7 +369,48 @@ input {
 
 .news-image{
     background-color: #dde7f5;
-
     max-width: 100%;
     height: 100%;
+}
+
+.right-news{
+    
+}
+
+/* Header */
+.opt{
+    display: none;
+}
+
+.trending{
+    display: none;
+}
+
+/* Mobile view */
+@media(max-width:730px) {
+    .layout {
+        display: grid;
+        grid-template-columns: 1fr ;
+    }
+
+    .left {
+        display: none;
+    }
+
+    .right-news{
+        display: none;
+    }
+
+    /* Header */
+    .opt {
+        display: block;
+    }
+    
+    .trending {
+        display: block;
+    }
+
+    .icon{
+        width: 25px;
+    }
 }

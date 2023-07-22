@@ -11,7 +11,7 @@ const Layout = () => {
     <LeftSide/>
     </div>
     <Outlet className="middle"/>
-    <RightSide />
+    <RightSide/>
    </div>
   </main>
  )
