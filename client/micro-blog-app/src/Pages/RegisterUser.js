@@ -51,7 +51,7 @@ const RegisterUser = () => {
 
    <div id='main'>
     <div class="container">
-         <form class="form" id="form" onSubmit={handleSubmit}>
+    <form class="form" id="form" onSubmit={handleSubmit}>
            <h2 className="sign-header">Register With Twitter</h2>
       <div class="form-control ">
        <label for="username">Username</label>

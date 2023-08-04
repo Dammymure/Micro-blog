@@ -10,7 +10,7 @@ const userRouter = require("./routes/UserRoute")
 const tweetRouter = require("./routes/TweetRoute")
 const bodyParser = require('body-parser');
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }))
+app.use(cors({ credentials: true, origin:[ "http://localhost:3000", "https://micro-blog-app.onrender.com"] }))
 
 app.use('/uploads', express.static(__dirname + '/uploads'))
 
