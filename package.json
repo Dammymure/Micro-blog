@@ -1,20 +1,20 @@
 {
-    "name": "Micro-blog",
-    "version": "1.0.0",
-    "description": "",
-    "scripts": {
-        "build": "cd api && npm install && cd ../client && npm install && npm run build ",
-        "test": "echo \"No test specified\" && exit 1",
-        "start": "node api/server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Dammymure/Micro-blog.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Dammymure/Micro-blog/issues"
-    },
-    "homepage": "https://github.com/Dammymure/Micro-blog#readme"
+  "name": "Micro-blog",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npm run build ",
+    "test": "echo \"No test specified\" && exit 1",
+    "start": "node api/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dammymure/Micro-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dammymure/Micro-blog/issues"
+  },
+  "homepage": "https://github.com/Dammymure/Micro-blog#readme"
 }
