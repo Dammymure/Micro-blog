@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "npm run build ",
+    "build": "cd api && npm insl && cd ../client && npm install && npm run build && npm run vercel-build",
     "test": "echo \"No test specified\" && exit 1",
     "start": "node api/index.js"
   },
